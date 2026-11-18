@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CM Industries installe chez vous un assistant IA commercial à votre nom : prospects, mails, relances et fichier client. Conçu dans le Gard.">
+<meta property="og:title" content="CM Industries : assistants IA commerciaux">
+<meta property="og:description" content="Le temps perdu, on vous le rend. Un assistant IA à votre nom qui prospecte, écrit et relance pour vous.">
+<meta property="og:image" content="img/partage.jpg">
+<link rel="icon" href="img/embleme.png">
+
+<title>CM Industries : assistants IA commerciaux</title>
+
+</head>
+<body>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060f0c}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:96px}
+a{color:#c9a85f}a:hover{color:#e6cf95}
+
+/* ---------- la porte d'entrée ---------- */
+.porte{position:absolute;top:0;left:0;width:1px;height:1px;opacity:0}
+.scene{position:relative;max-height:min(100vh,1000px);overflow:clip;animation:libereA .01s linear 14s forwards}
+@keyframes libereA{to{max-height:200000px}}
+.porte:checked ~ .scene{max-height:none;animation:none}
+.intro{position:absolute;top:0;left:0;right:0;height:min(100vh,1000px);z-index:60;overflow:hidden;animation:voileA 1.3s ease 14s forwards}
+@keyframes voileA{to{opacity:0;visibility:hidden}}
+@keyframes voileB{to{opacity:0;visibility:hidden}}
+.porte:checked ~ .scene .intro{animation:voileB 1.3s ease forwards;pointer-events:none}
+.rond-zone{animation:eclateA 1.2s cubic-bezier(.7,0,.3,1) 14s forwards}
+@keyframes eclateA{to{transform:scale(9);opacity:0}}
+@keyframes eclateB{to{transform:scale(9);opacity:0}}
+.porte:checked ~ .scene .rond-zone{animation:eclateB 1.2s cubic-bezier(.7,0,.3,1) forwards}
+.rond{cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.rond:hover{transform:scale(1.06)}
+.porte:focus-visible ~ .scene .rond{outline:2px solid #e6cf95;outline-offset:8px}
+@keyframes souffle{0%,100%{box-shadow:0 0 40px rgba(79,163,255,.45), inset 0 0 30px rgba(79,163,255,.18)}50%{box-shadow:0 0 80px rgba(79,163,255,.75), inset 0 0 46px rgba(79,163,255,.3)}}
+@keyframes souffle-v{0%,100%{box-shadow:0 0 50px rgba(169,181,146,.22), inset 0 0 50px rgba(169,181,146,.1)}50%{box-shadow:0 0 90px rgba(169,181,146,.42), inset 0 0 70px rgba(169,181,146,.18)}}
+.anneau{animation:souffle 4s ease-in-out infinite}
+.intro .anneau{animation-name:souffle-v}
+@keyframes pt{50%{opacity:.35}}
+.pt{animation:pt 2s infinite}
+
+/* ---------- l'arrivée du site ---------- */
+@keyframes entreA{from{opacity:0;transform:translateY(30px);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes entreB{from{opacity:0;transform:translateY(30px);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+.e{animation:entreA 1.1s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(14.4s + var(--d, 0s))}
+.porte:checked ~ .scene .e{animation-name:entreB;animation-delay:calc(.7s + var(--d, 0s))}
+
+/* ---------- mouvements permanents ---------- */
+@keyframes tourne{to{transform:rotate(360deg)}}
+.tourne{animation:tourne 12s linear infinite}
+.tourne-lent{animation:tourne 90s linear infinite reverse}
+.halo{animation:tourne 7s linear infinite}
+@keyframes f1{0%,4%{opacity:.28}9%,94%{opacity:1}100%{opacity:.28}}
+@keyframes f2{0%,28%{opacity:.28}33%,94%{opacity:1}100%{opacity:.28}}
+@keyframes f3{0%,52%{opacity:.28}57%,94%{opacity:1}100%{opacity:.28}}
+@keyframes f4{0%,76%{opacity:.28}81%,94%{opacity:1}100%{opacity:.28}}
+.f1{animation:f1 12s ease infinite}.f2{animation:f2 12s ease infinite}.f3{animation:f3 12s ease infinite}.f4{animation:f4 12s ease infinite}
+@keyframes derive{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.12)}}
+.orbe{animation:derive 16s ease-in-out infinite}
+.orbe2{animation:derive 22s ease-in-out infinite reverse}
+@keyframes defile{to{transform:translateX(-50%)}}
+.defile{animation:defile 38s linear infinite}
+@keyframes vague{to{transform:translateX(-600px)}}
+.vague{animation:vague 14s linear infinite}
+.vague2{animation:vague 22s linear infinite reverse}
+@keyframes a1{0%,5%{opacity:0;transform:translateY(8px)}12%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes a2{0%,18%{opacity:0;transform:translateY(8px)}25%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes a3{0%,31%{opacity:0;transform:translateY(8px)}38%,92%{opacity:1;transform:none}100%{opacity:0}}
+.a1{animation:a1 9s ease infinite}.a2{animation:a2 9s ease infinite}.a3{animation:a3 9s ease infinite}
+@keyframes clign{50%{opacity:0}}
+.curseur{animation:clign 1s steps(1) infinite}
+@keyframes descend{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
+.descend{animation:descend 2.2s ease-in-out infinite}
+
+/* ---------- au défilement ---------- */
+.prog{transform:scaleX(0)}
+.chiffres{transform:translateY(-88.8889%)}
+.jour-p{background:rgba(201,168,95,.9);color:#060f0c;border:1px solid #e6cf95;font-weight:600}
+@keyframes monte{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
+@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes compte{from{transform:translateY(0)}to{transform:translateY(-88.8889%)}}
+@keyframes incline{from{transform:perspective(1400px) rotateX(24deg) scale(.88);opacity:.35}to{transform:perspective(1400px) rotateX(0) scale(1);opacity:1}}
+@keyframes zoom{from{transform:scale(.86);opacity:.2}to{transform:scale(1);opacity:1}}
+@keyframes jourp{from{background:rgba(207,216,191,.04);color:#b9c3b4;border-color:rgba(207,216,191,.22)}to{background:rgba(201,168,95,.9);color:#060f0c;border-color:#e6cf95}}
+@keyframes rempli{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@supports (animation-timeline: view()){
+  .rv{animation:monte linear both;animation-timeline:view();animation-range:entry 0% entry 42%}
+  .prog{animation:prog linear both;animation-timeline:scroll(root)}
+  .compteur{view-timeline-name:--cpt}
+  .chiffres{animation:compte steps(8, end) both;animation-timeline:--cpt;animation-range:entry 60% cover 46%}
+  .jour-p{animation:jourp linear both;animation-timeline:view();animation-range:cover 30% cover 44%}
+  .incline{animation:incline linear both;animation-timeline:view();animation-range:entry 0% cover 42%}
+  .zoom{animation:zoom linear both;animation-timeline:view();animation-range:entry 0% cover 38%}
+  .etapes{view-timeline-name:--etapes}
+  .rempli{animation:rempli linear both;animation-timeline:--etapes;animation-range:contain 0% contain 100%}
+}
+
+/* ---------- survols ---------- */
+.cta,.cta2{transition:background .25s, transform .25s, box-shadow .25s}
+.cta:hover{background:#e6cf95 !important;transform:translateY(-2px);box-shadow:0 12px 34px rgba(201,168,95,.35)}
+.cta2:hover{background:rgba(238,241,232,.1) !important;transform:translateY(-2px)}
+.carte-m{transition:border-color .25s, transform .25s}
+.carte-m:hover{border-color:rgba(169,181,146,.6) !important;transform:translateY(-4px)}
+.lien-nav{position:relative}
+.lien-nav::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:#c9a85f;transform:scaleX(0);transform-origin:0 50%;transition:transform .3s}
+.lien-nav:hover::after{transform:scaleX(1)}
+details summary{cursor:pointer;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details[open] .plus{transform:rotate(45deg)}
+.plus{transition:transform .2s}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01s !important;animation-iteration-count:1 !important;transition:none !important}
+  .rv,.incline,.zoom,.chiffres,.jour-p,.prog,.rempli{animation:none !important}
+  html{scroll-behavior:auto}
+}
+@media (max-width: 900px){
+  .hero-t{font-size:46px !important}
+  .h2{font-size:32px !important}
+  .nav-liens{display:none !important}
+  .sect{padding:76px 22px !important}
+  .duo,.etapes{grid-template-columns:minmax(0,1fr) !important;gap:44px !important}
+  .colle{position:static !important}
+  .ligne{grid-template-columns:minmax(0,1fr) !important;gap:14px !important}
+  .fl{transform:rotate(90deg)}
+  .compteur{font-size:120px !important}
+  .tel{position:static !important;width:44% !important;margin:18px auto 0 !important}
+}
+</style>
+
+<div id="haut" style="--titre: Outfit, sans-serif; --texte: Outfit, sans-serif; font-family: var(--texte); color: #eef1e8; background: #060f0c; min-height: 100vh; position: relative">
+<input id="entree" type="checkbox" class="porte" aria-label="Entrer sur le site">
+<div class="scene">
+
+<!-- ============ INTRODUCTION : le cercle de Friday ============ -->
+<div class="intro" style="background: #060f0c; color: #eef1e8; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box">
+  <div class="rond-zone" style="position: relative; width: 260px; height: 260px">
+    <div class="tourne" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none"><span style="position: absolute; top: -6px; left: 50%; margin-left: -6px; width: 12px; height: 12px; border-radius: 50%; background: #e6cf95; box-shadow: 0 0 20px 5px rgba(201,168,95,.7)"></span></div>
+    <label for="entree" class="rond anneau" style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(207,216,191,.75); box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: var(--titre); font-weight: 300; font-size: 18px; letter-spacing: .5em; padding-left: .5em; color: #eef1e8">ENTRER</label>
+  </div>
+</div>
+
+<div class="prog" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100%; height: 2px; transform-origin: 0 50%; background: linear-gradient(90deg, #a9b592, #e6cf95); z-index: 40"></div>
+
+<!-- navigation -->
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(6,15,12,.72); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(207,216,191,.1)">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+    <a href="#haut" aria-label="CM Industries, accueil" style="display: flex; align-items: center">
+      <img src="img/logo.png" alt="CM Industries" style="height: 46px; width: auto; display: block">
+    </a>
+    <nav class="nav-liens" aria-label="Sections" style="display: flex; gap: 32px; font-size: 15px; font-weight: 500">
+      <a class="lien-nav" href="#assistant" style="color: #eef1e8; text-decoration: none">L'assistant</a>
+      <a class="lien-nav" href="#exemple" style="color: #eef1e8; text-decoration: none">Exemple réel</a>
+      <a class="lien-nav" href="#plateforme" style="color: #eef1e8; text-decoration: none">Friday</a>
+      <a class="lien-nav" href="#offre" style="color: #eef1e8; text-decoration: none">Offre</a>
+      <a class="lien-nav" href="#questions" style="color: #eef1e8; text-decoration: none">Questions</a>
+    </nav>
+    <a class="cta" href="mailto:miralles.groupecm@gmail.com?subject=D%C3%A9mo%20assistant%20IA" style="background: #c9a85f; color: #060f0c; text-decoration: none; font-weight: 600; font-size: 15px; padding: 13px 24px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Réserver une démo</a>
+  </div>
+</header>
+
+<!-- ============ HÉROS ============ -->
+<section style="position: relative; background-image: radial-gradient(rgba(207,216,191,.13) 1px, transparent 1px); background-size: 34px 34px">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(6,15,12,0), #060f0c 72%); pointer-events: none"></div>
+  <div class="sect duo" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 84px 32px 60px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 64px; align-items: center">
+    <div>
+      <p class="e" style="--d: 0s; margin: 0 0 24px; display: inline-flex; align-items: center; gap: 10px; color: #cfd8bf; font-weight: 500; font-size: 14px; border: 1px solid rgba(169,181,146,.4); padding: 8px 16px; border-radius: 999px"><span class="pt" style="width: 8px; height: 8px; border-radius: 50%; background: #a9b592; display: inline-block"></span>Assistants IA commerciaux, conçus dans le Gard</p>
+      <h1 class="hero-t" style="margin: 0; font-family: var(--titre); font-weight: 400; font-size: 84px; line-height: 1.02; letter-spacing: -.02em"><span class="e" style="--d: .12s; display: block">Le temps perdu,</span><span class="e" style="--d: .28s; display: block; color: #cfd8bf">on vous le rend.</span></h1>
+      <p class="e" style="--d: .46s; margin: 30px 0 0; font-size: 19px; line-height: 1.6; color: #b9c3b4; max-width: 540px">CM Industries installe chez vous un assistant IA à votre nom. Il trouve des prospects, écrit les mails, relance et tient vos fichiers à jour. Vous, vous vendez.</p>
+      <div class="e" style="--d: .62s; margin-top: 38px; display: flex; gap: 16px; flex-wrap: wrap">
+        <a class="cta" href="mailto:miralles.groupecm@gmail.com?subject=D%C3%A9mo%20assistant%20IA" style="background: #c9a85f; color: #060f0c; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 999px; min-height: 44px; box-sizing: border-box">Réserver une démo de 20 minutes</a>
+        <a class="cta2" href="#exemple" style="border: 1px solid rgba(238,241,232,.4); color: #eef1e8; text-decoration: none; font-weight: 500; font-size: 16px; padding: 16px 28px; border-radius: 999px; min-height: 44px; box-sizing: border-box">Voir un exemple réel</a>
+      </div>
+    </div>
+    <div class="e" style="--d: .5s; position: relative; display: flex; justify-content: center; padding: 16px 0">
+      <div class="orbe" aria-hidden="true" style="position: absolute; left: 2%; top: 4%; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(closest-side, rgba(111,125,90,.55), rgba(111,125,90,0)); pointer-events: none"></div>
+      <div class="orbe2" aria-hidden="true" style="position: absolute; right: 0; bottom: 0; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(closest-side, rgba(201,168,95,.26), rgba(201,168,95,0)); pointer-events: none"></div>
+      <div style="position: relative; width: 100%; max-width: 480px; aspect-ratio: 1 / 1">
+        <div aria-hidden="true" style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(207,216,191,.6); box-shadow: 0 0 70px rgba(169,181,146,.28), inset 0 0 70px rgba(169,181,146,.12)"></div>
+        <div class="tourne-lent" aria-hidden="true" style="position: absolute; inset: 7%; border-radius: 50%; border: 1px dashed rgba(207,216,191,.28)"></div>
+        <div class="tourne" aria-hidden="true" style="position: absolute; inset: 0"><span style="position: absolute; top: -7px; left: 50%; margin-left: -7px; width: 14px; height: 14px; border-radius: 50%; background: #e6cf95; box-shadow: 0 0 22px 6px rgba(201,168,95,.75)"></span></div>
+        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 16%; box-sizing: border-box">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .22em; color: #a9b592; text-align: center">PENDANT QUE VOUS VENDEZ</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; font-size: 17px; font-weight: 500"><li class="f1" style="display: flex; align-items: center; gap: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#060f0c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; background: #a9b592; border-radius: 50%; padding: 4px; box-sizing: border-box"><path d="M20 6L9 17l-5-5"/></svg>Prospects trouvés</li><li class="f2" style="display: flex; align-items: center; gap: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#060f0c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; background: #a9b592; border-radius: 50%; padding: 4px; box-sizing: border-box"><path d="M20 6L9 17l-5-5"/></svg>Mails rédigés</li><li class="f3" style="display: flex; align-items: center; gap: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#060f0c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; background: #a9b592; border-radius: 50%; padding: 4px; box-sizing: border-box"><path d="M20 6L9 17l-5-5"/></svg>Relances préparées</li><li class="f4" style="display: flex; align-items: center; gap: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#060f0c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; background: #a9b592; border-radius: 50%; padding: 4px; box-sizing: border-box"><path d="M20 6L9 17l-5-5"/></svg>Fichier client à jour</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="e" aria-hidden="true" style="--d: 1s; position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; padding-bottom: 36px; font-size: 12px; letter-spacing: .25em; color: #8f9c8c">
+    DÉFILEZ
+    <span style="display: block; width: 1px; height: 46px; overflow: hidden; background: rgba(207,216,191,.15)"><span class="descend" style="display: block; width: 1px; height: 100%; background: #e6cf95"></span></span>
+  </div>
+</section>
+
+<!-- bandeau défilant -->
+<div style="overflow: hidden; padding: 24px 0; border-top: 1px solid rgba(207,216,191,.1); border-bottom: 1px solid rgba(207,216,191,.1); font-family: var(--titre); font-size: 24px; font-weight: 300; color: #cfd8bf; white-space: nowrap">
+  <div class="defile" style="display: inline-flex"><span style="display: inline-flex; align-items: center; gap: 44px; padding-right: 44px"><span>Trouver des prospects</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Écrire les mails</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Relancer au bon moment</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Suivre les devis</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Tenir le fichier à jour</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Préparer le point du jour</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span></span><span aria-hidden="true" style="display: inline-flex; align-items: center; gap: 44px; padding-right: 44px"><span>Trouver des prospects</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Écrire les mails</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Relancer au bon moment</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Suivre les devis</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Tenir le fichier à jour</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span><span>Préparer le point du jour</span><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #c9a85f; display: inline-block"></span></span></div>
+</div>
+
+<!-- ============ LE TEMPS ============ -->
+<section style="background: linear-gradient(180deg, #060f0c, #0a1813 30%, #0a1813 70%, #060f0c)">
+  <div class="sect" style="max-width: 1240px; margin: 0 auto; padding: 130px 32px 110px">
+    <div class="duo" style="display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; align-items: center">
+      <div>
+        <p class="compteur" aria-label="8 heures" style="margin: 0; display: flex; align-items: flex-start; gap: .12em; font-family: var(--titre); font-weight: 200; font-size: 220px; line-height: 1; height: 1em; overflow: hidden; color: #e6cf95">
+          <span class="chiffres" aria-hidden="true" style="display: block"><span style="display: block; height: 1em">0</span><span style="display: block; height: 1em">1</span><span style="display: block; height: 1em">2</span><span style="display: block; height: 1em">3</span><span style="display: block; height: 1em">4</span><span style="display: block; height: 1em">5</span><span style="display: block; height: 1em">6</span><span style="display: block; height: 1em">7</span><span style="display: block; height: 1em">8</span></span><span aria-hidden="true">h</span>
+        </p>
+        <div aria-hidden="true" style="margin-top: 34px; display: flex; gap: 10px; max-width: 460px"><span style="flex: 1; height: 54px; border-radius: 10px; border: 1px solid rgba(207,216,191,.22); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #b9c3b4">Lun</span><span style="flex: 1; height: 54px; border-radius: 10px; border: 1px solid rgba(207,216,191,.22); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #b9c3b4">Mar</span><span style="flex: 1; height: 54px; border-radius: 10px; border: 1px solid rgba(207,216,191,.22); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #b9c3b4">Mer</span><span style="flex: 1; height: 54px; border-radius: 10px; border: 1px solid rgba(207,216,191,.22); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #b9c3b4">Jeu</span><span class="jour-p" style="flex: 1; height: 54px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px">Ven</span></div>
+      </div>
+      <div>
+        <h2 class="h2 rv" style="margin: 0; font-family: var(--titre); font-weight: 400; font-size: 46px; line-height: 1.12; letter-spacing: -.01em">Chaque semaine, une journée entière part en tâches que personne n'aime faire.</h2>
+        <p class="rv" style="margin: 24px 0 0; font-size: 19px; line-height: 1.6; color: #b9c3b4; max-width: 560px">Plus de huit heures par semaine : c'est le temps qu'un commercial peut passer à la seule prospection.</p>
+        <p class="rv" style="margin: 14px 0 0; font-size: 13px; color: #8f9c8c">Source : <a href="https://www.salesforce.com/fr/sales/prospecting/ai/">Salesforce, guide de la prospection IA</a>.</p>
+      </div>
+    </div>
+
+    <h2 class="h2 rv" style="margin: 120px 0 0; font-family: var(--titre); font-weight: 400; font-size: 40px; line-height: 1.15; max-width: 760px">Le même travail, fait à la main ou confié à votre assistant.</h2>
+    <ul style="margin: 40px 0 0; padding: 0; list-style: none; border-bottom: 1px solid rgba(207,216,191,.14)">
+      <li class="ligne rv" style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr); gap: 28px; align-items: center; padding: 26px 0; border-top: 1px solid rgba(207,216,191,.14)">
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #8f9c8c"><b style="display: block; color: #cfd8bf; font-weight: 600; font-size: 19px; margin-bottom: 4px">Relances oubliées</b>Le client attendait un appel, il a commandé ailleurs.</p>
+        <svg class="fl" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a85f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #eef1e8; background: linear-gradient(120deg, rgba(169,181,146,.16), rgba(169,181,146,.04)); border: 1px solid rgba(169,181,146,.28); border-radius: 14px; padding: 18px 22px">Chaque relance est préparée à la bonne date. Vous n'avez qu'à valider.</p>
+      </li>
+      <li class="ligne rv" style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr); gap: 28px; align-items: center; padding: 26px 0; border-top: 1px solid rgba(207,216,191,.14)">
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #8f9c8c"><b style="display: block; color: #cfd8bf; font-weight: 600; font-size: 19px; margin-bottom: 4px">Devis en attente</b>Envoyés, jamais relancés, jamais signés.</p>
+        <svg class="fl" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a85f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #eef1e8; background: linear-gradient(120deg, rgba(169,181,146,.16), rgba(169,181,146,.04)); border: 1px solid rgba(169,181,146,.28); border-radius: 14px; padding: 18px 22px">Chaque devis est suivi jusqu'à la réponse, puis signalé « à appeler ».</p>
+      </li>
+      <li class="ligne rv" style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr); gap: 28px; align-items: center; padding: 26px 0; border-top: 1px solid rgba(207,216,191,.14)">
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #8f9c8c"><b style="display: block; color: #cfd8bf; font-weight: 600; font-size: 19px; margin-bottom: 4px">Fichiers pas à jour</b>Personne ne sait qui a appelé qui, ni quand.</p>
+        <svg class="fl" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a85f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #eef1e8; background: linear-gradient(120deg, rgba(169,181,146,.16), rgba(169,181,146,.04)); border: 1px solid rgba(169,181,146,.28); border-radius: 14px; padding: 18px 22px">Un seul fichier client, mis à jour tout seul et partagé par l'équipe.</p>
+      </li>
+      <li class="ligne rv" style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr); gap: 28px; align-items: center; padding: 26px 0; border-top: 1px solid rgba(207,216,191,.14)">
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #8f9c8c"><b style="display: block; color: #cfd8bf; font-weight: 600; font-size: 19px; margin-bottom: 4px">Mails écrits un par un</b>Du temps pris sur la vente et sur le terrain.</p>
+        <svg class="fl" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a85f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #eef1e8; background: linear-gradient(120deg, rgba(169,181,146,.16), rgba(169,181,146,.04)); border: 1px solid rgba(169,181,146,.28); border-radius: 14px; padding: 18px 22px">Un mail adapté à chaque client est prêt en quelques secondes.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ L'ASSISTANT : scène qui reste à l'écran ============ -->
+<section id="assistant">
+  <div class="sect etapes" style="max-width: 1240px; margin: 0 auto; padding: 120px 32px; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 88px; align-items: start">
+    <div class="colle" style="position: sticky; top: 130px; display: flex; gap: 28px">
+      <div aria-hidden="true" style="flex: none; width: 2px; background: rgba(207,216,191,.14); border-radius: 2px; overflow: hidden"><div class="rempli" style="width: 100%; height: 100%; background: linear-gradient(180deg, #a9b592, #e6cf95); transform-origin: 50% 0"></div></div>
+      <div>
+        <p style="margin: 0 0 16px; color: #c9a85f; font-weight: 600; font-size: 15px">L'assistant</p>
+        <h2 class="h2" style="margin: 0; font-family: var(--titre); font-weight: 400; font-size: 46px; line-height: 1.12; letter-spacing: -.01em">Ce que fait votre assistant, chaque jour</h2>
+        <p style="margin: 22px 0 0; font-size: 18px; line-height: 1.6; color: #b9c3b4">Il porte votre nom, connaît vos produits et vos tarifs, et écrit avec votre ton. Rien ne part sans votre accord.</p>
+      </div>
+    </div>
+    <div style="display: grid; gap: 110px">
+      <article class="rv" style="display: grid; gap: 22px">
+        <div style="display: flex; align-items: baseline; gap: 18px">
+          <span aria-hidden="true" style="font-family: var(--titre); font-weight: 300; font-size: 76px; line-height: 1; color: transparent; -webkit-text-stroke: 1px #c9a85f">01</span>
+          <h3 style="margin: 0; font-family: var(--titre); font-size: 30px; font-weight: 500">Il trouve des prospects</h3>
+        </div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #b9c3b4; max-width: 560px">Dans l'annuaire officiel des entreprises et sur leurs sites : nom, dirigeant, téléphone, mail. Vous choisissez le métier et le département, il fait le tour.</p>
+        <div class="carte-m" style="background: linear-gradient(160deg, #10241c, #0a1813); border: 1px solid rgba(169,181,146,.22); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.45); padding: 22px">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; font-size: 13px">
+            <span style="border: 1px solid rgba(169,181,146,.4); padding: 8px 14px; border-radius: 999px">Cavistes</span>
+            <span style="border: 1px solid rgba(169,181,146,.4); padding: 8px 14px; border-radius: 999px">Gard (30)</span>
+            <span style="background: #a9b592; color: #060f0c; font-weight: 600; padding: 8px 14px; border-radius: 999px">Chercher</span>
+          </div>
+          <div style="margin-top: 16px; display: grid; gap: 8px; font-size: 14px">
+            <div class="a1" style="display: flex; justify-content: space-between; gap: 12px; background: rgba(6,15,12,.7); padding: 12px 14px; border-radius: 10px"><span><b>Cave des Arènes</b> (exemple) · Nîmes</span><span style="color: #a9b592; font-weight: 600">mail trouvé</span></div>
+            <div class="a2" style="display: flex; justify-content: space-between; gap: 12px; background: rgba(6,15,12,.7); padding: 12px 14px; border-radius: 10px"><span><b>Le Cellier d'Uzès</b> (exemple) · Uzès</span><span style="color: #a9b592; font-weight: 600">mail trouvé</span></div>
+            <div class="a3" style="display: flex; justify-content: space-between; gap: 12px; background: rgba(6,15,12,.7); padding: 12px 14px; border-radius: 10px"><span><b>Vins et Garrigue</b> (exemple) · Alès</span><span style="color: #c9a85f; font-weight: 600">téléphone seul</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="rv" style="display: grid; gap: 22px">
+        <div style="display: flex; align-items: baseline; gap: 18px">
+          <span aria-hidden="true" style="font-family: var(--titre); font-weight: 300; font-size: 76px; line-height: 1; color: transparent; -webkit-text-stroke: 1px #c9a85f">02</span>
+          <h3 style="margin: 0; font-family: var(--titre); font-size: 30px; font-weight: 500">Il écrit les mails</h3>
+        </div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #b9c3b4; max-width: 560px">Un mail adapté à chaque client, avec la bonne offre. Il apprend de vos corrections et reprend votre façon d'écrire.</p>
+        <div class="carte-m" style="background: linear-gradient(160deg, #10241c, #0a1813); border: 1px solid rgba(169,181,146,.22); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.45); padding: 24px">
+          <p style="margin: 0; font-size: 13px; color: #8f9c8c">Votre correction d'hier</p>
+          <p style="margin: 8px 0 0; font-size: 15px; line-height: 1.7"><span style="text-decoration: line-through; color: #6f7a6c">Nous nous permettons de vous contacter afin de</span> <span style="background: rgba(169,181,146,.25); padding: 2px 6px; border-radius: 4px">Je vous écris pour</span> vous présenter notre tarif.</p>
+          <div style="margin: 18px 0; height: 1px; background: rgba(207,216,191,.14)"></div>
+          <p style="margin: 0; font-size: 13px; color: #8f9c8c">Le mail d'aujourd'hui</p>
+          <p style="margin: 8px 0 0; font-size: 15px; line-height: 1.7"><span style="background: rgba(169,181,146,.25); padding: 2px 6px; border-radius: 4px">Je vous écris pour</span> vous proposer nos nouveautés de saison<span class="curseur" aria-hidden="true" style="display: inline-block; width: 2px; height: 1.1em; background: #e6cf95; margin-left: 3px; vertical-align: text-bottom"></span></p>
+        </div>
+      </article>
+      <article class="rv" style="display: grid; gap: 22px">
+        <div style="display: flex; align-items: baseline; gap: 18px">
+          <span aria-hidden="true" style="font-family: var(--titre); font-weight: 300; font-size: 76px; line-height: 1; color: transparent; -webkit-text-stroke: 1px #c9a85f">03</span>
+          <h3 style="margin: 0; font-family: var(--titre); font-size: 30px; font-weight: 500">Vous validez, il envoie</h3>
+        </div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #b9c3b4; max-width: 560px">Depuis votre boîte mail, à votre nom, au bon rythme pour ne pas finir en spam. Puis il relance tout seul, aux dates que vous avez choisies.</p>
+        <div class="carte-m" style="background: linear-gradient(160deg, #10241c, #0a1813); border: 1px solid rgba(169,181,146,.22); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.45); padding: 28px 24px">
+          <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); text-align: center; font-size: 14px">
+            <li style="position: relative; padding-top: 34px"><span aria-hidden="true" style="position: absolute; top: 9px; left: 50%; right: -50%; height: 2px; background: #a9b592"></span><span aria-hidden="true" style="position: absolute; top: 0; left: 50%; margin-left: -10px; width: 20px; height: 20px; border-radius: 50%; background: #a9b592"></span><b>Jour 0</b><br><span style="color: #b9c3b4">Premier mail</span></li><li style="position: relative; padding-top: 34px"><span aria-hidden="true" style="position: absolute; top: 9px; left: 50%; right: -50%; height: 2px; background: #a9b592"></span><span aria-hidden="true" style="position: absolute; top: 0; left: 50%; margin-left: -10px; width: 20px; height: 20px; border-radius: 50%; background: #a9b592"></span><b>Jour 3</b><br><span style="color: #b9c3b4">Relance 1</span></li><li style="position: relative; padding-top: 34px"><span aria-hidden="true" style="position: absolute; top: 9px; left: 50%; right: -50%; height: 2px; background: rgba(169,181,146,.3)"></span><span aria-hidden="true" style="position: absolute; top: 0; left: 50%; margin-left: -10px; width: 20px; height: 20px; border-radius: 50%; background: #c9a85f"></span><b>Jour 7</b><br><span style="color: #b9c3b4">Relance 2</span></li><li style="position: relative; padding-top: 34px"><span aria-hidden="true" style="position: absolute; top: 0; left: 50%; margin-left: -10px; width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(169,181,146,.5); box-sizing: border-box; background: #0a1813"></span><b>Jour 14</b><br><span style="color: #b9c3b4">À appeler</span></li>
+          </ol>
+          <p style="margin: 22px 0 0; font-size: 13px; color: #a9b592; text-align: center">Dès qu'un client répond, les relances s'arrêtent.</p>
+        </div>
+      </article>
+      <article class="rv" style="display: grid; gap: 22px">
+        <div style="display: flex; align-items: baseline; gap: 18px">
+          <span aria-hidden="true" style="font-family: var(--titre); font-weight: 300; font-size: 76px; line-height: 1; color: transparent; -webkit-text-stroke: 1px #c9a85f">04</span>
+          <h3 style="margin: 0; font-family: var(--titre); font-size: 30px; font-weight: 500">Il relance et vous dit qui rappeler</h3>
+        </div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #b9c3b4; max-width: 560px">Il lit les réponses, met à jour le fichier client, suit vos devis et vous prépare le point du jour. Vous lui parlez comme à un collègue.</p>
+        <div class="carte-m" style="background: linear-gradient(160deg, #10241c, #0a1813); border: 1px solid rgba(169,181,146,.22); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.45); padding: 22px; display: grid; gap: 12px">
+          <p style="margin: 0; justify-self: end; max-width: 80%; background: #a9b592; color: #060f0c; padding: 12px 16px; border-radius: 16px 16px 4px 16px; font-size: 15px; font-weight: 500">Fais-moi le point du jour.</p>
+          <div style="max-width: 88%; background: rgba(6,15,12,.7); padding: 14px 16px; border-radius: 16px 16px 16px 4px; font-size: 15px; line-height: 1.6; color: #e3e9da">Deux clients ont répondu ce matin, je vous conseille de les rappeler en premier. Un devis attend une réponse depuis dix jours. Les mails de relance sont prêts, il ne manque que votre validation.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXEMPLE RÉEL ============ -->
+<section id="exemple" style="background: linear-gradient(180deg, #060f0c, #0a1813 25%, #0a1813 75%, #060f0c)">
+  <div class="sect" style="max-width: 1240px; margin: 0 auto; padding: 120px 32px">
+    <div style="max-width: 820px">
+      <p class="rv" style="margin: 0 0 16px; display: inline-block; border: 1px solid rgba(201,168,95,.5); color: #e6cf95; font-weight: 600; font-size: 13px; padding: 6px 14px; border-radius: 999px">Exemple réel</p>
+      <h2 class="h2 rv" style="margin: 0; font-family: var(--titre); font-weight: 400; font-size: 46px; line-height: 1.12; letter-spacing: -.01em">Gardois, l'assistant du Dépôt Gardois</h2>
+      <p class="rv" style="margin: 24px 0 0; font-size: 18px; line-height: 1.6; color: #b9c3b4">Grossiste alimentaire à Nîmes, le Dépôt Gardois livre restaurants, supérettes et grandes surfaces. Gardois prépare les mails de prospection avec le bon catalogue pour chaque type de client, suit les relances et partage le fichier clients entre les commerciaux, sur ordinateur comme sur téléphone.</p>
+    </div>
+    <div style="position: relative; margin-top: 64px; padding-bottom: 40px">
+      <div class="incline" style="transform-origin: 50% 100%; background: #10241c; border: 1px solid rgba(169,181,146,.3); border-radius: 18px; padding: 10px; box-shadow: 0 50px 120px rgba(0,0,0,.6), 0 0 90px rgba(169,181,146,.14)">
+        <img src="img/gardois-ordinateur.jpg" alt="Gardois sur ordinateur : aperçu d'un mail de prospection avant envoi" style="width: 100%; border-radius: 10px; display: block">
+      </div>
+      <div class="tel rv" style="position: absolute; right: 4%; bottom: 0; width: 17%; background: #10241c; border: 1px solid rgba(169,181,146,.4); border-radius: 24px; padding: 6px; box-shadow: 0 30px 80px rgba(0,0,0,.7)">
+        <img src="img/gardois-telephone.jpg" alt="Gardois sur téléphone : discussion avec l'assistant" style="width: 100%; border-radius: 18px; display: block">
+      </div>
+    </div>
+    <p style="margin: 18px 0 0; font-size: 13px; color: #8f9c8c">Écrans réels de Gardois, avec des données de démonstration.</p>
+  </div>
+</section>
+
+<!-- ============ POUR QUI ============ -->
+<section class="sect" style="max-width: 1240px; margin: 0 auto; padding: 120px 32px">
+  <h2 class="h2 rv" style="margin: 0; font-family: var(--titre); font-weight: 400; font-size: 46px; line-height: 1.12; letter-spacing: -.01em; max-width: 860px">Fait pour les entreprises qui vendent à d'autres entreprises</h2>
+  <p class="rv" style="margin: 20px 0 0; font-size: 18px; line-height: 1.6; color: #b9c3b4; max-width: 680px">Et bien plus que des mails : chaque assistant reçoit une option pensée pour votre métier.</p>
+  <ul style="margin: 52px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+    <li class="carte-m rv" style="background: linear-gradient(160deg, #10241c, #0a1813); border: 1px solid rgba(169,181,146,.22); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.45); padding: 26px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a85f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg><p style="margin: 14px 0 0; font-weight: 600; font-size: 18px">Grossistes et distributeurs</p><p style="margin: 8px 0 0; line-height: 1.6; color: #b9c3b4">Catalogue par type de client, réassort, nouveaux comptes.</p></li>
+    <li class="carte-m rv" style="background: linear-gradient(160deg, #10241c, #0a1813); border: 1px solid rgba(169,181,146,.22); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.45); padding: 26px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a85f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10c0 5-2 8-5 8S7 8 7 3zM12 11v8M8 21h8"/></svg><p style="margin: 14px 0 0; font-weight: 600; font-size: 18px">Domaines viticoles</p><p style="margin: 8px 0 0; line-height: 1.6; color: #b9c3b4">Cavistes et restaurants prospectés, tarifs envoyés, relances.</p></li>
+    <li class="carte-m rv" style="background: linear-gradient(160deg, #10241c, #0a1813); border: 1px solid rgba(169,181,146,.22); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.45); padding: 26px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a85f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12M10 21v-6h4v6"/></svg><p style="margin: 14px 0 0; font-weight: 600; font-size: 18px">Artisans du bâtiment</p><p style="margin: 8px 0 0; line-height: 1.6; color: #b9c3b4">Devis relancés, demandes traitées, rendez-vous pris.</p></li>
+    <li class="carte-m rv" style="background: linear-gradient(160deg, #10241c, #0a1813); border: 1px solid rgba(169,181,146,.22); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.45); padding: 26px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a85f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v8a2 2 0 004 0V3M8 11v10M17 3c-2 2-2 6 0 8v10"/></svg><p style="margin: 14px 0 0; font-weight: 600; font-size: 18px">Fournisseurs CHR</p><p style="margin: 8px 0 0; line-height: 1.6; color: #b9c3b4">Restaurants et hôtels suivis, commandes relancées.</p></li>
+    <li class="carte-m rv" style="background: linear-gradient(160deg, #10241c, #0a1813); border: 1px solid rgba(169,181,146,.22); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.45); padding: 26px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a85f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6V3z"/><path d="M15 3v4h4M9 12h7M9 16h7"/></svg><p style="margin: 14px 0 0; font-weight: 600; font-size: 18px">Agences et courtiers</p><p style="margin: 8px 0 0; line-height: 1.6; color: #b9c3b4">Contacts relancés, dossiers suivis, pièces demandées.</p></li>
+    <li class="rv" style="background: #6f7d5a; border-radius: 18px; padding: 26px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><p style="margin: 14px 0 0; font-weight: 600; font-size: 18px; color: #ffffff">Votre métier</p><p style="margin: 8px 0 0; line-height: 1.6; color: #ffffff">Dites-nous ce qui vous prend du temps : on construit l'option qui le règle.</p></li>
+  </ul>
+</section>
+
+<!-- ============ FRIDAY ============ -->
+<section id="plateforme" style="background: radial-gradient(ellipse at 50% 0%, #07102a, #02040c 70%); color: #dce8ff">
+  <div class="sect" style="max-width: 1240px; margin: 0 auto; padding: 130px 32px">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center">
+      <p class="rv" style="margin: 0; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(79,163,255,.3); background: rgba(20,40,90,.4); color: #bcd6ff; font-size: 12px; letter-spacing: .2em; padding: 7px 16px; border-radius: 999px"><span class="pt" style="width: 7px; height: 7px; border-radius: 50%; background: #4fa3ff; box-shadow: 0 0 10px #4fa3ff; display: inline-block"></span>VEILLE</p>
+      <div aria-hidden="true" class="zoom" style="position: relative; width: 100%; margin: 44px 0 40px; display: flex; justify-content: center">
+        <svg viewBox="0 0 1200 190" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%, #000 65%, transparent); mask-image: linear-gradient(90deg, transparent, #000 35%, #000 65%, transparent)"><path class="vague" d="M0,95.0 L20,104.6 L40,113.7 L60,122.0 L80,129.2 L100,134.8 L120,138.7 L140,140.7 L160,140.7 L180,138.7 L200,134.8 L220,129.2 L240,122.0 L260,113.7 L280,104.6 L300,95.0 L320,85.4 L340,76.3 L360,68.0 L380,60.8 L400,55.2 L420,51.3 L440,49.3 L460,49.3 L480,51.3 L500,55.2 L520,60.8 L540,68.0 L560,76.3 L580,85.4 L600,95.0 L620,104.6 L640,113.7 L660,122.0 L680,129.2 L700,134.8 L720,138.7 L740,140.7 L760,140.7 L780,138.7 L800,134.8 L820,129.2 L840,122.0 L860,113.7 L880,104.6 L900,95.0 L920,85.4 L940,76.3 L960,68.0 L980,60.8 L1000,55.2 L1020,51.3 L1040,49.3 L1060,49.3 L1080,51.3 L1100,55.2 L1120,60.8 L1140,68.0 L1160,76.3 L1180,85.4 L1200,95.0 L1220,104.6 L1240,113.7 L1260,122.0 L1280,129.2 L1300,134.8 L1320,138.7 L1340,140.7 L1360,140.7 L1380,138.7 L1400,134.8 L1420,129.2 L1440,122.0 L1460,113.7 L1480,104.6 L1500,95.0 L1520,85.4 L1540,76.3 L1560,68.0 L1580,60.8 L1600,55.2 L1620,51.3 L1640,49.3 L1660,49.3 L1680,51.3 L1700,55.2 L1720,60.8 L1740,68.0 L1760,76.3 L1780,85.4 L1800,95.0 L1820,104.6 L1840,113.7 L1860,122.0 L1880,129.2 L1900,134.8 L1920,138.7 L1940,140.7 L1960,140.7 L1980,138.7 L2000,134.8 L2020,129.2 L2040,122.0 L2060,113.7 L2080,104.6 L2100,95.0 L2120,85.4 L2140,76.3 L2160,68.0 L2180,60.8 L2200,55.2 L2220,51.3 L2240,49.3 L2260,49.3 L2280,51.3 L2300,55.2 L2320,60.8 L2340,68.0 L2360,76.3 L2380,85.4 L2400,95.0 L2420,104.6 L2440,113.7 L2460,122.0 L2480,129.2 L2500,134.8 L2520,138.7 L2540,140.7 L2560,140.7 L2580,138.7 L2600,134.8 L2620,129.2 L2640,122.0 L2660,113.7 L2680,104.6 L2700,95.0 L2720,85.4 L2740,76.3 L2760,68.0 L2780,60.8 L2800,55.2 L2820,51.3 L2840,49.3 L2860,49.3 L2880,51.3 L2900,55.2 L2920,60.8 L2940,68.0 L2960,76.3 L2980,85.4 L3000,95.0" fill="none" stroke="rgba(79,163,255,0.75)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 9"/><path class="vague2" d="M0,127.8 L20,128.9 L40,128.6 L60,126.9 L80,123.7 L100,119.3 L120,113.8 L140,107.5 L160,100.6 L180,93.5 L200,86.5 L220,79.8 L240,73.8 L260,68.8 L280,64.8 L300,62.2 L320,61.1 L340,61.4 L360,63.1 L380,66.3 L400,70.7 L420,76.2 L440,82.5 L460,89.4 L480,96.5 L500,103.5 L520,110.2 L540,116.2 L560,121.2 L580,125.2 L600,127.8 L620,128.9 L640,128.6 L660,126.9 L680,123.7 L700,119.3 L720,113.8 L740,107.5 L760,100.6 L780,93.5 L800,86.5 L820,79.8 L840,73.8 L860,68.8 L880,64.8 L900,62.2 L920,61.1 L940,61.4 L960,63.1 L980,66.3 L1000,70.7 L1020,76.2 L1040,82.5 L1060,89.4 L1080,96.5 L1100,103.5 L1120,110.2 L1140,116.2 L1160,121.2 L1180,125.2 L1200,127.8 L1220,128.9 L1240,128.6 L1260,126.9 L1280,123.7 L1300,119.3 L1320,113.8 L1340,107.5 L1360,100.6 L1380,93.5 L1400,86.5 L1420,79.8 L1440,73.8 L1460,68.8 L1480,64.8 L1500,62.2 L1520,61.1 L1540,61.4 L1560,63.1 L1580,66.3 L1600,70.7 L1620,76.2 L1640,82.5 L1660,89.4 L1680,96.5 L1700,103.5 L1720,110.2 L1740,116.2 L1760,121.2 L1780,125.2 L1800,127.8 L1820,128.9 L1840,128.6 L1860,126.9 L1880,123.7 L1900,119.3 L1920,113.8 L1940,107.5 L1960,100.6 L1980,93.5 L2000,86.5 L2020,79.8 L2040,73.8 L2060,68.8 L2080,64.8 L2100,62.2 L2120,61.1 L2140,61.4 L2160,63.1 L2180,66.3 L2200,70.7 L2220,76.2 L2240,82.5 L2260,89.4 L2280,96.5 L2300,103.5 L2320,110.2 L2340,116.2 L2360,121.2 L2380,125.2 L2400,127.8 L2420,128.9 L2440,128.6 L2460,126.9 L2480,123.7 L2500,119.3 L2520,113.8 L2540,107.5 L2560,100.6 L2580,93.5 L2600,86.5 L2620,79.8 L2640,73.8 L2660,68.8 L2680,64.8 L2700,62.2 L2720,61.1 L2740,61.4 L2760,63.1 L2780,66.3 L2800,70.7 L2820,76.2 L2840,82.5 L2860,89.4 L2880,96.5 L2900,103.5 L2920,110.2 L2940,116.2 L2960,121.2 L2980,125.2 L3000,127.8" fill="none" stroke="rgba(188,214,255,0.6)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 12"/><path class="vague" d="M0,124.9 L20,113.9 L40,102.1 L60,90.0 L80,78.1 L100,66.9 L120,57.0 L140,48.7 L160,42.4 L180,38.5 L200,37.0 L220,38.1 L240,41.6 L260,47.5 L280,55.4 L300,65.1 L320,76.1 L340,87.9 L360,100.0 L380,111.9 L400,123.1 L420,133.0 L440,141.3 L460,147.6 L480,151.5 L500,153.0 L520,151.9 L540,148.4 L560,142.5 L580,134.6 L600,124.9 L620,113.9 L640,102.1 L660,90.0 L680,78.1 L700,66.9 L720,57.0 L740,48.7 L760,42.4 L780,38.5 L800,37.0 L820,38.1 L840,41.6 L860,47.5 L880,55.4 L900,65.1 L920,76.1 L940,87.9 L960,100.0 L980,111.9 L1000,123.1 L1020,133.0 L1040,141.3 L1060,147.6 L1080,151.5 L1100,153.0 L1120,151.9 L1140,148.4 L1160,142.5 L1180,134.6 L1200,124.9 L1220,113.9 L1240,102.1 L1260,90.0 L1280,78.1 L1300,66.9 L1320,57.0 L1340,48.7 L1360,42.4 L1380,38.5 L1400,37.0 L1420,38.1 L1440,41.6 L1460,47.5 L1480,55.4 L1500,65.1 L1520,76.1 L1540,87.9 L1560,100.0 L1580,111.9 L1600,123.1 L1620,133.0 L1640,141.3 L1660,147.6 L1680,151.5 L1700,153.0 L1720,151.9 L1740,148.4 L1760,142.5 L1780,134.6 L1800,124.9 L1820,113.9 L1840,102.1 L1860,90.0 L1880,78.1 L1900,66.9 L1920,57.0 L1940,48.7 L1960,42.4 L1980,38.5 L2000,37.0 L2020,38.1 L2040,41.6 L2060,47.5 L2080,55.4 L2100,65.1 L2120,76.1 L2140,87.9 L2160,100.0 L2180,111.9 L2200,123.1 L2220,133.0 L2240,141.3 L2260,147.6 L2280,151.5 L2300,153.0 L2320,151.9 L2340,148.4 L2360,142.5 L2380,134.6 L2400,124.9 L2420,113.9 L2440,102.1 L2460,90.0 L2480,78.1 L2500,66.9 L2520,57.0 L2540,48.7 L2560,42.4 L2580,38.5 L2600,37.0 L2620,38.1 L2640,41.6 L2660,47.5 L2680,55.4 L2700,65.1 L2720,76.1 L2740,87.9 L2760,100.0 L2780,111.9 L2800,123.1 L2820,133.0 L2840,141.3 L2860,147.6 L2880,151.5 L2900,153.0 L2920,151.9 L2940,148.4 L2960,142.5 L2980,134.6 L3000,124.9" fill="none" stroke="rgba(79,163,255,0.45)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 14"/><path class="vague2" d="M0,78.4 L20,75.7 L40,73.9 L60,73.1 L80,73.2 L100,74.2 L120,76.2 L140,79.0 L160,82.4 L180,86.5 L200,90.9 L220,95.5 L240,100.0 L260,104.4 L280,108.3 L300,111.6 L320,114.3 L340,116.1 L360,116.9 L380,116.8 L400,115.8 L420,113.8 L440,111.0 L460,107.6 L480,103.5 L500,99.1 L520,94.5 L540,90.0 L560,85.6 L580,81.7 L600,78.4 L620,75.7 L640,73.9 L660,73.1 L680,73.2 L700,74.2 L720,76.2 L740,79.0 L760,82.4 L780,86.5 L800,90.9 L820,95.5 L840,100.0 L860,104.4 L880,108.3 L900,111.6 L920,114.3 L940,116.1 L960,116.9 L980,116.8 L1000,115.8 L1020,113.8 L1040,111.0 L1060,107.6 L1080,103.5 L1100,99.1 L1120,94.5 L1140,90.0 L1160,85.6 L1180,81.7 L1200,78.4 L1220,75.7 L1240,73.9 L1260,73.1 L1280,73.2 L1300,74.2 L1320,76.2 L1340,79.0 L1360,82.4 L1380,86.5 L1400,90.9 L1420,95.5 L1440,100.0 L1460,104.4 L1480,108.3 L1500,111.6 L1520,114.3 L1540,116.1 L1560,116.9 L1580,116.8 L1600,115.8 L1620,113.8 L1640,111.0 L1660,107.6 L1680,103.5 L1700,99.1 L1720,94.5 L1740,90.0 L1760,85.6 L1780,81.7 L1800,78.4 L1820,75.7 L1840,73.9 L1860,73.1 L1880,73.2 L1900,74.2 L1920,76.2 L1940,79.0 L1960,82.4 L1980,86.5 L2000,90.9 L2020,95.5 L2040,100.0 L2060,104.4 L2080,108.3 L2100,111.6 L2120,114.3 L2140,116.1 L2160,116.9 L2180,116.8 L2200,115.8 L2220,113.8 L2240,111.0 L2260,107.6 L2280,103.5 L2300,99.1 L2320,94.5 L2340,90.0 L2360,85.6 L2380,81.7 L2400,78.4 L2420,75.7 L2440,73.9 L2460,73.1 L2480,73.2 L2500,74.2 L2520,76.2 L2540,79.0 L2560,82.4 L2580,86.5 L2600,90.9 L2620,95.5 L2640,100.0 L2660,104.4 L2680,108.3 L2700,111.6 L2720,114.3 L2740,116.1 L2760,116.9 L2780,116.8 L2800,115.8 L2820,113.8 L2840,111.0 L2860,107.6 L2880,103.5 L2900,99.1 L2920,94.5 L2940,90.0 L2960,85.6 L2980,81.7 L3000,78.4" fill="none" stroke="rgba(188,214,255,0.5)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 8"/><path class="vague" d="M0,30.2 L20,37.1 L40,46.6 L60,58.1 L80,71.3 L100,85.5 L120,100.1 L140,114.5 L160,128.1 L180,140.2 L200,150.3 L220,158.0 L240,163.0 L260,165.0 L280,163.9 L300,159.8 L320,152.9 L340,143.4 L360,131.9 L380,118.7 L400,104.5 L420,89.9 L440,75.5 L460,61.9 L480,49.8 L500,39.7 L520,32.0 L540,27.0 L560,25.0 L580,26.1 L600,30.2 L620,37.1 L640,46.6 L660,58.1 L680,71.3 L700,85.5 L720,100.1 L740,114.5 L760,128.1 L780,140.2 L800,150.3 L820,158.0 L840,163.0 L860,165.0 L880,163.9 L900,159.8 L920,152.9 L940,143.4 L960,131.9 L980,118.7 L1000,104.5 L1020,89.9 L1040,75.5 L1060,61.9 L1080,49.8 L1100,39.7 L1120,32.0 L1140,27.0 L1160,25.0 L1180,26.1 L1200,30.2 L1220,37.1 L1240,46.6 L1260,58.1 L1280,71.3 L1300,85.5 L1320,100.1 L1340,114.5 L1360,128.1 L1380,140.2 L1400,150.3 L1420,158.0 L1440,163.0 L1460,165.0 L1480,163.9 L1500,159.8 L1520,152.9 L1540,143.4 L1560,131.9 L1580,118.7 L1600,104.5 L1620,89.9 L1640,75.5 L1660,61.9 L1680,49.8 L1700,39.7 L1720,32.0 L1740,27.0 L1760,25.0 L1780,26.1 L1800,30.2 L1820,37.1 L1840,46.6 L1860,58.1 L1880,71.3 L1900,85.5 L1920,100.1 L1940,114.5 L1960,128.1 L1980,140.2 L2000,150.3 L2020,158.0 L2040,163.0 L2060,165.0 L2080,163.9 L2100,159.8 L2120,152.9 L2140,143.4 L2160,131.9 L2180,118.7 L2200,104.5 L2220,89.9 L2240,75.5 L2260,61.9 L2280,49.8 L2300,39.7 L2320,32.0 L2340,27.0 L2360,25.0 L2380,26.1 L2400,30.2 L2420,37.1 L2440,46.6 L2460,58.1 L2480,71.3 L2500,85.5 L2520,100.1 L2540,114.5 L2560,128.1 L2580,140.2 L2600,150.3 L2620,158.0 L2640,163.0 L2660,165.0 L2680,163.9 L2700,159.8 L2720,152.9 L2740,143.4 L2760,131.9 L2780,118.7 L2800,104.5 L2820,89.9 L2840,75.5 L2860,61.9 L2880,49.8 L2900,39.7 L2920,32.0 L2940,27.0 L2960,25.0 L2980,26.1 L3000,30.2" fill="none" stroke="rgba(79,163,255,0.25)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 18"/></svg>
+        <div class="anneau" style="position: relative; width: 190px; height: 190px; border-radius: 50%; border: 2px solid #bcd6ff; box-sizing: border-box; background: radial-gradient(closest-side, rgba(79,163,255,.16), rgba(2,4,12,.5))"></div>
+      </div>
+      <p style="margin: 0; font-weight: 300; font-size: 22px; letter-spacing: .55em; padding-left: .55em; color: #dce8ff; text-shadow: 0 0 18px rgba(79,163,255,.7)">FRIDAY</p>
+      <h2 class="h2 rv" style="margin: 28px 0 0; font-family: var(--titre); font-weight: 400; font-size: 48px; line-height: 1.12; letter-spacing: -.01em; color: #ffffff">Et nous gérons tout, à distance.</h2>
+      <p class="rv" style="margin: 22px 0 0; font-size: 18px; line-height: 1.6; color: #b9c9e6; max-width: 700px">Votre assistant tourne sur votre ordinateur. Depuis notre plateforme, Friday veille sur lui jour et nuit : nous voyons s'il va bien, nous le mettons à jour et nous corrigeons avant que vous ne remarquiez quoi que ce soit.</p>
+    </div>
+    <div class="incline" style="transform-origin: 50% 100%; margin: 64px auto 0; max-width: 1040px; border: 1px solid rgba(79,163,255,.3); border-radius: 18px; overflow: hidden; box-shadow: 0 0 140px rgba(59,108,255,.28)">
+      <img src="img/friday.jpg" alt="La plateforme Friday : état de chaque assistant, mails envoyés et alertes" style="width: 100%; display: block; height: auto">
+    </div>
+    <p style="margin: 14px 0 0; text-align: center; font-size: 12px; color: #7d8fb5">Écran réel de la plateforme, avec des données de démonstration.</p>
+    <ul style="margin: 52px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; font-size: 15px; line-height: 1.55; color: #dce8ff">
+      <li class="rv" style="background: rgba(10,20,48,.6); border: 1px solid rgba(79,163,255,.18); border-radius: 14px; padding: 20px"><b style="display: block; color: #ffffff; margin-bottom: 6px">Surveillance permanente</b>Alerte au moindre problème, avant que vous ne le voyiez.</li>
+      <li class="rv" style="background: rgba(10,20,48,.6); border: 1px solid rgba(79,163,255,.18); border-radius: 14px; padding: 20px"><b style="display: block; color: #ffffff; margin-bottom: 6px">Mises à jour incluses</b>Les améliorations sont installées pour vous.</li>
+      <li class="rv" style="background: rgba(10,20,48,.6); border: 1px solid rgba(79,163,255,.18); border-radius: 14px; padding: 20px"><b style="display: block; color: #ffffff; margin-bottom: 6px">Un réglage par mois</b>Avec vous, au téléphone, pour l'ajuster à votre activité.</li>
+      <li class="rv" style="background: rgba(10,20,48,.6); border: 1px solid rgba(79,163,255,.18); border-radius: 14px; padding: 20px"><b style="display: block; color: #ffffff; margin-bottom: 6px">Vos clients restent privés</b>La plateforme ne voit que la santé de l'assistant, jamais vos clients ni vos mails.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ ENGAGEMENTS ============ -->
+<section style="background: #6f7d5a; color: #ffffff">
+  <div class="sect" style="max-width: 1240px; margin: 0 auto; padding: 100px 32px">
+    <h2 class="h2 rv" style="margin: 0; font-family: var(--titre); font-weight: 400; font-size: 46px; line-height: 1.12; letter-spacing: -.01em; max-width: 780px">Pas un logiciel de plus à apprendre.</h2>
+    <div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px">
+      <div class="rv"><p style="margin: 0; font-weight: 600; font-size: 21px">Vos données restent chez vous</p><p style="margin: 10px 0 0; line-height: 1.6">Clients, prospects et mails restent sur votre ordinateur. Rien n'est stocké chez nous.</p></div>
+      <div class="rv"><p style="margin: 0; font-weight: 600; font-size: 21px">Accessible partout</p><p style="margin: 10px 0 0; line-height: 1.6">Ordinateur, Mac ou téléphone : chacun se connecte avec son identifiant, sans rien installer.</p></div>
+      <div class="rv"><p style="margin: 0; font-weight: 600; font-size: 21px">Vous gardez la main</p><p style="margin: 10px 0 0; line-height: 1.6">Aucun mail ne part sans votre validation, sauf si vous le décidez.</p></div>
+    </div>
+    <ul style="margin: 56px 0 0; padding: 28px 0 0; border-top: 1px solid rgba(255,255,255,.3); list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; font-size: 15px; font-weight: 500"><li style="display: flex; gap: 12px; align-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a9b592" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg>Vos données restent chez vous</li><li style="display: flex; gap: 12px; align-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a9b592" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Rien ne part sans votre accord</li><li style="display: flex; gap: 12px; align-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a9b592" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Windows, Mac et téléphone</li><li style="display: flex; gap: 12px; align-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a9b592" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Installé et réglé sur place</li></ul>
+  </div>
+</section>
+
+<!-- ============ OFFRE ============ -->
+<section id="offre" class="sect duo" style="max-width: 1240px; margin: 0 auto; padding: 130px 32px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; align-items: center">
+  <div>
+    <p class="rv" style="margin: 0 0 16px; color: #c9a85f; font-weight: 600; font-size: 15px">Offre clients fondateurs</p>
+    <h2 class="h2 rv" style="margin: 0; font-family: var(--titre); font-weight: 400; font-size: 48px; line-height: 1.12; letter-spacing: -.01em">5 places, pour les premières entreprises.</h2>
+    <p class="rv" style="margin: 24px 0 0; font-size: 18px; line-height: 1.6; color: #b9c3b4">En échange de vos retours et d'un témoignage après deux mois, vous profitez d'un tarif réservé, garanti tant que vous restez client.</p>
+  </div>
+  <div class="rv" style="position: relative; border-radius: 24px; padding: 1.5px; overflow: hidden; box-shadow: 0 40px 110px rgba(0,0,0,.55), 0 0 80px rgba(201,168,95,.12)">
+    <div class="halo" aria-hidden="true" style="position: absolute; left: -50%; top: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, rgba(201,168,95,.15) 0deg, rgba(201,168,95,.15) 250deg, #e6cf95 320deg, rgba(201,168,95,.15) 360deg)"></div>
+    <div style="position: relative; background: linear-gradient(160deg, #10241c, #0a1813); border-radius: 22.5px; padding: 38px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px">
+        <div><p style="margin: 0; font-size: 14px; font-weight: 600; color: #a9b592">Installation et réglage sur place</p><p style="margin: 6px 0 0; font-family: var(--titre); font-weight: 300; font-size: 50px; line-height: 1.1">990 €</p><p style="margin: 4px 0 0; font-size: 14px; color: #8f9c8c">au lieu de 1 490 €</p></div>
+        <div><p style="margin: 0; font-size: 14px; font-weight: 600; color: #a9b592">Abonnement</p><p style="margin: 6px 0 0; font-family: var(--titre); font-weight: 300; font-size: 50px; line-height: 1.1">190 € <span style="font-size: 22px">/ mois</span></p><p style="margin: 4px 0 0; font-size: 14px; color: #8f9c8c">au lieu de 250 €, 6 mois d'engagement</p></div>
+      </div>
+      <ul style="margin: 28px 0 0; padding: 24px 0 0; border-top: 1px solid rgba(207,216,191,.16); list-style: none; display: grid; gap: 12px; font-size: 16px"><li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a9b592" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M20 6L9 17l-5-5"/></svg>Assistant à votre nom, réglé sur vos produits et vos offres</li><li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a9b592" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M20 6L9 17l-5-5"/></svg>Une option sur mesure pour votre métier</li><li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a9b592" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M20 6L9 17l-5-5"/></svg>Mises à jour, sauvegarde et surveillance à distance</li><li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a9b592" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M20 6L9 17l-5-5"/></svg>Support par téléphone et un réglage par mois</li></ul>
+      <a class="cta" href="mailto:miralles.groupecm@gmail.com?subject=Offre%20clients%20fondateurs" style="margin-top: 30px; display: inline-flex; align-items: center; background: #c9a85f; color: #060f0c; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 999px; min-height: 44px; box-sizing: border-box">Réserver ma place</a>
+      <p style="margin: 18px 0 0; font-size: 13px; color: #8f9c8c">Prix hors taxes. TVA non applicable, article 293 B du CGI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUESTIONS ============ -->
+<section id="questions" style="background: #0a1813">
+  <div class="sect" style="max-width: 880px; margin: 0 auto; padding: 110px 32px">
+    <h2 class="h2 rv" style="margin: 0 0 36px; font-family: var(--titre); font-weight: 400; font-size: 42px; line-height: 1.15">Les questions qu'on nous pose</h2>
+    <details class="rv" style="border-top: 1px solid rgba(207,216,191,.15); padding: 22px 0">
+      <summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 600; min-height: 44px; align-items: center">Les mails partent-ils tout seuls ?<span class="plus" aria-hidden="true" style="font-size: 26px; font-weight: 400; color: #c9a85f; line-height: 1">+</span></summary>
+      <p style="margin: 12px 0 0; line-height: 1.65; color: #b9c3b4">Non. Par défaut, chaque mail attend votre validation. Vous pouvez activer l'envoi automatique plus tard, quand vous êtes à l'aise.</p>
+    </details>
+    <details class="rv" style="border-top: 1px solid rgba(207,216,191,.15); padding: 22px 0">
+      <summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 600; min-height: 44px; align-items: center">Où sont stockées mes données ?<span class="plus" aria-hidden="true" style="font-size: 26px; font-weight: 400; color: #c9a85f; line-height: 1">+</span></summary>
+      <p style="margin: 12px 0 0; line-height: 1.65; color: #b9c3b4">Sur votre ordinateur. Le fichier clients, les mails et l'intelligence artificielle elle-même tournent chez vous. Notre plateforme ne reçoit que l'état de santé de l'assistant.</p>
+    </details>
+    <details class="rv" style="border-top: 1px solid rgba(207,216,191,.15); padding: 22px 0">
+      <summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 600; min-height: 44px; align-items: center">Faut-il laisser l'ordinateur allumé ?<span class="plus" aria-hidden="true" style="font-size: 26px; font-weight: 400; color: #c9a85f; line-height: 1">+</span></summary>
+      <p style="margin: 12px 0 0; line-height: 1.65; color: #b9c3b4">L'assistant travaille quand l'ordinateur où il est installé est allumé. S'il est éteint, il reprend là où il s'était arrêté au redémarrage.</p>
+    </details>
+    <details class="rv" style="border-top: 1px solid rgba(207,216,191,.15); padding: 22px 0">
+      <summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 600; min-height: 44px; align-items: center">Est-ce que ça remplace mes commerciaux ?<span class="plus" aria-hidden="true" style="font-size: 26px; font-weight: 400; color: #c9a85f; line-height: 1">+</span></summary>
+      <p style="margin: 12px 0 0; line-height: 1.65; color: #b9c3b4">Non. Il leur enlève la recherche, la rédaction et le suivi, pour qu'ils passent leur temps au téléphone et chez les clients.</p>
+    </details>
+    <details class="rv" style="border-top: 1px solid rgba(207,216,191,.15); border-bottom: 1px solid rgba(207,216,191,.15); padding: 22px 0">
+      <summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 600; min-height: 44px; align-items: center">Je ne suis pas à l'aise avec l'informatique. C'est un problème ?<span class="plus" aria-hidden="true" style="font-size: 26px; font-weight: 400; color: #c9a85f; line-height: 1">+</span></summary>
+      <p style="margin: 12px 0 0; line-height: 1.65; color: #b9c3b4">Non. Nous installons et réglons tout sur place, puis nous nous occupons des mises à jour à distance. Vous l'utilisez comme une messagerie.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ FIN : le cercle revient ============ -->
+<section id="contact" style="position: relative; overflow: hidden">
+  <div class="sect" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 150px 32px; display: flex; flex-direction: column; align-items: center; text-align: center">
+    <div class="zoom" aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 760px; height: 760px; margin: -380px 0 0 -380px; pointer-events: none">
+      <div style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(207,216,191,.4); box-shadow: 0 0 90px rgba(169,181,146,.22), inset 0 0 90px rgba(169,181,146,.1)"></div>
+      <div class="tourne-lent" style="position: absolute; inset: 6%; border-radius: 50%; border: 1px dashed rgba(207,216,191,.22)"></div>
+      <div class="tourne" style="position: absolute; inset: 0"><span style="position: absolute; top: -7px; left: 50%; margin-left: -7px; width: 14px; height: 14px; border-radius: 50%; background: #e6cf95; box-shadow: 0 0 22px 6px rgba(201,168,95,.75)"></span></div>
+    </div>
+    <h2 class="h2 rv" style="position: relative; margin: 0; font-family: var(--titre); font-weight: 400; font-size: 60px; line-height: 1.08; letter-spacing: -.02em; max-width: 620px">Le futur du travail, c'est du temps retrouvé.</h2>
+    <p class="rv" style="position: relative; margin: 24px 0 0; font-size: 18px; line-height: 1.6; color: #b9c3b4; max-width: 520px">20 minutes pour le voir sur vos produits, chez vous ou en visio, dans le Gard, l'Hérault, le Vaucluse et les Bouches-du-Rhône.</p>
+    <a class="cta rv" href="mailto:miralles.groupecm@gmail.com?subject=D%C3%A9mo%20assistant%20IA" style="position: relative; margin-top: 36px; display: inline-flex; align-items: center; background: #c9a85f; color: #060f0c; text-decoration: none; font-weight: 600; font-size: 17px; padding: 18px 34px; border-radius: 999px; min-height: 44px; box-sizing: border-box">Réserver une démo</a>
+    <div class="rv" style="position: relative; margin-top: 44px">
+      <p style="margin: 0; font-weight: 600; font-size: 19px">Camille Miralles</p>
+      <p style="margin: 4px 0 0; color: #a9b592; font-size: 15px">Fondateur, CM Industries</p>
+      <p style="margin: 14px 0 0; font-size: 22px; font-weight: 500"><a href="tel:+33644816456" style="text-decoration: none">06 44 81 64 56</a></p>
+      <p style="margin: 6px 0 0; font-size: 16px; word-break: break-word"><a href="mailto:miralles.groupecm@gmail.com">miralles.groupecm@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top: 1px solid rgba(207,216,191,.1)">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 32px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; font-size: 13px; color: #8f9c8c">
+    <div style="display: flex; align-items: center; gap: 14px"><img src="img/embleme.png" alt="" style="height: 40px; width: auto; display: block; opacity: .85"><p style="margin: 0">CM Industries, une branche de Groupe CM · Bellegarde, Gard</p></div>
+    <p style="margin: 0; max-width: 560px; line-height: 1.6">CM Industries est le nom commercial de Camille Miralles, entrepreneur individuel (micro-entreprise), SIRET 131 781 833 00010, Bellegarde (30127). Contact : miralles.groupecm@gmail.com, 06 44 81 64 56. Hébergement : GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
+  </div>
+</footer>
+
+</div>
+</div>
+
+</body>
+</html>
